@@ -1,8 +1,8 @@
-class Rosters < ActiveRecord::Migration
+class Players < ActiveRecord::Migration
   def change
-    create_table :rosters do |t|
-      t.string :player_name
-      t.string :player_number
+    create_table :players do |t|
+      t.string :name
+      t.string :number
 
       t.timestamps
     end
