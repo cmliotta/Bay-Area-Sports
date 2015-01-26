@@ -1,7 +1,33 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  getRoster()
+  hideRoster()
 });
+
+
+
+function getRoster() {
+  $(".upcoming_games").on("click", ".roster", function(event){
+    event.preventDefault()
+
+      console.log($(this).attr("href"))
+      url = $(this).attr("href")
+      $clicked = $(this)
+
+    $.ajax({
+      url: url
+    }).success(function(response){
+      console.log(response)
+      $clicked.parent().append(response)
+    }).fail(function(response){
+      console.log("fail" + response)
+    })
+  })
+}
+
+function hideRoster() {
+  $(".upcoming_games").on("click", "#hide_roster", function(){
+    console.log("clickinggg")
+    console.log($(this).parent())
+    $(this).parent().css("display", "none")
+  })
+}

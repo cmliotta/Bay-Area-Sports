@@ -4,7 +4,7 @@ database with event info
 
 Team has many events
   has many players
-Event belongs to team
+Game belongs to team
 Player belongs to team
 
 
@@ -13,4 +13,13 @@ Sort all those by date
 First of each team
 
 
+ <% @games.each do |game| %>
+    <li id"game"><%= game.home_team %> vs. <%= game.away_team%></li>
+    <li id"date"><%= game.date.getlocal.asctime %></li>
+  <% if game.home_team == "San Jose Sharks" %>
+    <img src="">
+  <% else %>
+    <img src="">
+  <% end %>
+<% end %>
 

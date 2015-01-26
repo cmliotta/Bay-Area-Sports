@@ -1,9 +1,9 @@
 get '/' do
-  @events = []
-  events = Event.order(:date)
-  @events << events.where(home_team: "San Jose Sharks").first
-  # @events << events.where(home_team: "San Jose Earthquakes").first
-  @roster = Roster.all
+  # @games = []
+  # games = Game.order(:date)
+  # @games << games.where(home_team: "San Jose Sharks").first
+  # # @events << events.where(home_team: "San Jose Earthquakes").first
+  # @player = Player.all
   erb :index
 end
 
@@ -12,7 +12,11 @@ post '/' do
   200
 end
 
-
 get "/roster" do
   request_roster
+end
+
+get "/roster/:id" do
+  @team = Team.find(params[:id])
+  erb :roster, layout: false
 end

@@ -11,6 +11,13 @@ body {
   background: white;
 }
 
+header {
+  text-align: center;
+  margin-top: 3%;
+  height: 50px;
+  background: #8CD2CD;
+}
+
 form {
   margin-top: 10%;
 }
@@ -20,9 +27,34 @@ li {
   font-weight: bold;
 }
 
+.roster {
+  display: block;
+  margin-top: 10px;
+}
+
+.showroster {
+  width: 100px;
+}
+
 img {
   height: 100px;
   width: 100px;
+}
+
+#home {
+  margin-top: -25px;
+  float: right;
+  text-decoration: none;
+  color: #1D3F3D;
+  font-weight: bold;
+}
+
+#home:hover {
+  color: black;
+}
+
+h1 {
+  text-align: center;
 }
 
 @media (max-width: 790px) {

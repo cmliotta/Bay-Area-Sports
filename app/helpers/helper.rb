@@ -22,19 +22,21 @@ helpers do
     puts "end of list"
 
     event_info["events"].each do |event|
-      Event.create(venue: event["venue"]["name"], home_team: event["attributes"][0]["value"], date: event["dateLocal"], away_team: event["attributes"][1]["value"])
+      Game.create(venue: event["venue"]["name"], home_team: event["attributes"][0]["value"], date: event["dateLocal"], away_team: event["attributes"][1]["value"])
     end
 
   end
 
   def request_roster
-    response = HTTParty.get("http://api.sportsdatallc.org/nhl-t3/teams/44155909-0f24-11e2-8525-18a905767e44/profile.xml?api_key=" + ENV['NHL'])
+    response = HTTParty.get("http://api.sportsdatallc.org/nfl-t1/teams/OAK/roster.xml?api_key=" + ENV['NFL'])
 
-    pp response["team"]["players"]["player"]
+    response["team"]["player"].each do |player|
+      pp player["name_full"] + player["jersey_number"]
+    end
 
-     response["team"]["players"]["player"].each do |player|
-      Roster.create(player_name: player["full_name"], player_number: player["jersey_number"])
-     end
+     # response["team"]["player"].each do |player|
+     #  Player.create(name: player["name_full"], number: player["jersey_number"], team_id: 4)
+     # end
   end
 end
 

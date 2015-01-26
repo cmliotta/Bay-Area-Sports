@@ -1,22 +1,18 @@
 <div id="main-container">
-  <h1>Bay Area Sports</h1>
-  <h3> Upcoming Games: </h3>
+  <header>
+    <h1>Bay Area Sports</h1>
+    <a id="home" href="/"> Home</a>
+  </header>
 
-  <% @events.each do |event| %>
-    <li id"game"><%= event.home_team %> vs. <%= event.away_team%></li>
-    <li id"date"><%= event.date.getlocal.asctime %></li>
-  <% if event.home_team == "San Jose Sharks" %>
-    <img src="">
-  <% else %>
-    <img src="">
-  <% end %>
-<% end %>
+    <h3> Upcoming Games: </h3>
 
-<% @roster.each do |player| %>
-    <li id"game"><%= player.player_name %> </li>
-    <% end %>
+  <div class="upcoming_games">
+    <a class="roster" href="/roster/1"> Sharks Roster </a>
+    <a class="roster" href="/roster/2"> Quakes Roster</a>
+    <a class="roster" href="/roster/3"> 49ers Roster</a>
+  </div>
 
-  <form method="post" action="/">
-    <input type="submit">
-  </form>
+    <form method="post" action="/">
+      <input type="submit">
+    </form>
 </div>
