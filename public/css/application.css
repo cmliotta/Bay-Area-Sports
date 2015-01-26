@@ -1,0 +1,32 @@
+body {
+  background: #8CD2CD;
+  color: #1D3F3D;
+}
+
+#main-container {
+  text-align: center;
+  margin: auto;
+  width: 80%;
+  height: 600px;
+  background: white;
+}
+
+form {
+  margin-top: 10%;
+}
+
+li {
+  list-style-type: none;
+  font-weight: bold;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+@media (max-width: 790px) {
+  /*img {
+    display: none;
+  }*/
+}

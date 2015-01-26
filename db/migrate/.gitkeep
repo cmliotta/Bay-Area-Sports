@@ -1,5 +1,13 @@
 database with event info
-Get all event info
+  send api request
+  parse data to get proper sections
+
+Team has many events
+  has many players
+Event belongs to team
+Player belongs to team
+
+
 Request all events in next month
 Sort all those by date
 First of each team
