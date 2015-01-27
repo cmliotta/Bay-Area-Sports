@@ -39,4 +39,13 @@ helpers do
      #  Player.create(name: player["name_full"], number: player["jersey_number"], team_id: 4)
      # end
   end
+
+  def get_games
+  @games = []
+  games = Game.order(:date)
+  @games << games.where(home_team: "San Jose Sharks").first
+  @games << games.where(home_team: "San Jose Earthquakes").first
+  @games << games.where(home_team: "San Francisco Giants").first
+  @games << games.where(home_team: "Oakland Athletics").first
+  end
 end

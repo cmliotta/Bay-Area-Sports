@@ -9,6 +9,9 @@
 
 <div class="team_games">
   <h3> Upcoming Games: </h3>
+  <% if @games.empty? %>
+    <li class="game"> None Scheduled</li>
+  <% end %>
     <% @games.each do |game| %>
         <li class="game"><%= game.home_team %> vs. <%= game.away_team%></li>
         <li class="date"><%= game.date.getlocal.asctime %></li>

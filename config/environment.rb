@@ -21,7 +21,6 @@ require "sinatra/reloader" if development?
 require 'erb'
 
 require 'httparty'
-require 'stubhub'
 
 require 'dotenv'
 Dotenv.load

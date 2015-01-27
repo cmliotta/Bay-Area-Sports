@@ -1,11 +1,11 @@
 $(document).ready(function() {
-  getRoster()
-  hideRoster()
+  selectTeam()
+  returnHome()
 });
 
 
 
-function getRoster() {
+function selectTeam() {
   $(".navlink").on("click", function(event){
     event.preventDefault()
 
@@ -14,6 +14,21 @@ function getRoster() {
 
     $.ajax({
       url: url
+    }).success(function(response){
+      console.log(response)
+      $(".upcoming_games").html(response)
+    }).fail(function(response){
+      console.log("fail" + response)
+    })
+  })
+}
+
+function returnHome() {
+  $("#home").on("click", function(event){
+    event.preventDefault()
+
+    $.ajax({
+      url: "/home"
     }).success(function(response){
       console.log(response)
       $(".upcoming_games").html(response)

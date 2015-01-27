@@ -3,8 +3,8 @@
   <div class="upcoming_games">
     <h3> Upcoming Games: </h3>
     <% @games.each do |game| %>
-        <li id="game"><%= game.home_team %> vs. <%= game.away_team%></li>
-        <li id="date"><%= game.date.getlocal.asctime %></li>
+        <li class="game"><%= game.home_team %> vs. <%= game.away_team%></li>
+        <li class="date"><%= game.date.getlocal.asctime %></li>
       <% if game.home_team == "San Jose Sharks" %>
         <img class="logo" src="http://upload.wikimedia.org/wikipedia/en/thumb/3/37/SanJoseSharksLogo.svg/1258px-SanJoseSharksLogo.svg.png">
       <% elsif game.home_team == "San Jose Earthquakes" %>
