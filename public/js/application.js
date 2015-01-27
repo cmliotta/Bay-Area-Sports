@@ -23,9 +23,9 @@ function getRoster() {
   })
 }
 
-function hideRoster() {
-  $(".upcoming_games").on("click", "#hide_roster", function(){
-    console.log($(this).parent().parent())
-    $(this).parent().remove()
-  })
-}
+// function hideRoster() {
+//   $(".upcoming_games").on("click", "#hide_roster", function(){
+//     console.log($(this).parent().parent())
+//     $(this).parent().remove()
+//   })
+// }

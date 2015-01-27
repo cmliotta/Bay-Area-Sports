@@ -1,6 +1,6 @@
 <div class="show_roster">
   <ul class="roster">
-    <a id="hide_roster"> Hide Roster</a>
+    <h3 id="roster_header"> <%= @team.name %> Roster:</h3>
     <% @team.players.each do |player| %>
       <li class="player">-<%= player.name %> <%= player.number %> </li>
     <% end %>

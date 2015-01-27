@@ -21,9 +21,9 @@ helpers do
     end
     puts "end of list"
 
-    event_info["events"].each do |event|
-      Game.create(venue: event["venue"]["name"], home_team: event["attributes"][0]["value"], date: event["dateLocal"], away_team: event["attributes"][1]["value"], team_id: 6)
-    end
+    # event_info["events"].each do |event|
+    #   Game.create(venue: event["venue"]["name"], home_team: event["attributes"][0]["value"], date: event["dateLocal"], away_team: event["attributes"][1]["value"], team_id: 6)
+    # end
 
   end
 

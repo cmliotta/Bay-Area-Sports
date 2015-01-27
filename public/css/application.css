@@ -71,6 +71,7 @@ h1 {
 .show_roster {
   float: right;
   width: 400px;
+  margin-right: 100px;
 }
 
 .player {
