@@ -1,3 +1,9 @@
+Get baseball Rosters
+display "none scheduled" for American football
+push to heroku
+ajaxify
+
+
 database with event info
   send api request
   parse data to get proper sections

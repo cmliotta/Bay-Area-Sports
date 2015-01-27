@@ -40,11 +40,3 @@ helpers do
      # end
   end
 end
-
-
-
-
-#moan6xrBdVlrksIZkPkJ5qTcPl0a
-#lCvZhrfLV35oOIpo_PBOZRdK2cIa
-
-#request["events"][1]["venue"]["name"]
