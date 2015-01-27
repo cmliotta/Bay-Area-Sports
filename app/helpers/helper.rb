@@ -6,7 +6,7 @@ helpers do
   def request_api_info(title, venue)
     url = "https://api.stubhub.com/search/catalog/events/v2"
 
-    response = HTTParty.get(url, query: {title: title, venue: venue, status: "Active"}, headers: {"Authorization" => "Bearer " + ENV['APPLICATION_TOKEN']})
+    response = HTTParty.get(url, query: {title: title, venue: venue}, headers: {"Authorization" => "Bearer " + ENV['APPLICATION_TOKEN']})
 
     event_info = JSON.parse(response.body)
     p "EVENT INFO: ***************"
@@ -22,17 +22,18 @@ helpers do
     puts "end of list"
 
     event_info["events"].each do |event|
-      Game.create(venue: event["venue"]["name"], home_team: event["attributes"][0]["value"], date: event["dateLocal"], away_team: event["attributes"][1]["value"])
+      Game.create(venue: event["venue"]["name"], home_team: event["attributes"][0]["value"], date: event["dateLocal"], away_team: event["attributes"][1]["value"], team_id: 6)
     end
 
   end
 
   def request_roster
-    response = HTTParty.get("http://api.sportsdatallc.org/nfl-t1/teams/OAK/roster.xml?api_key=" + ENV['NFL'])
+    response = HTTParty.get("http://api.sportsdatallc.org/mlb-t4/rosters/2015.xml?api_key=" + ENV['MLB'])
 
-    response["team"]["player"].each do |player|
-      pp player["name_full"] + player["jersey_number"]
-    end
+    pp response
+    # response["team"]["player"].each do |player|
+    #   pp player["name_full"] + player["jersey_number"]
+    # end
 
      # response["team"]["player"].each do |player|
      #  Player.create(name: player["name_full"], number: player["jersey_number"], team_id: 4)

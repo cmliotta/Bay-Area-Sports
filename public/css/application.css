@@ -7,14 +7,14 @@ body {
   text-align: center;
   margin: auto;
   width: 80%;
-  height: 600px;
+  height: 1000px;
   background: white;
 }
 
 header {
   text-align: center;
-  margin-top: 3%;
-  height: 50px;
+  margin-top: 2%;
+  height: 100px;
   background: #8CD2CD;
 }
 
@@ -25,20 +25,6 @@ form {
 li {
   list-style-type: none;
   font-weight: bold;
-}
-
-.roster {
-  display: block;
-  margin-top: 10px;
-}
-
-.showroster {
-  width: 100px;
-}
-
-img {
-  height: 100px;
-  width: 100px;
 }
 
 #home {
@@ -53,12 +39,66 @@ img {
   color: black;
 }
 
+.navbar {
+  display: inline;
+  margin-right: 10px;
+}
+
+.navlink {
+  text-decoration: none;
+  color: #1D3F3D;
+}
+
+.navlink:hover {
+  color: black;
+}
+
 h1 {
   text-align: center;
 }
 
-@media (max-width: 790px) {
-  /*img {
+.logo {
+  margin-top: -200px;
+  margin-left: -400px;
+  height: 50px;
+  width: 50px;
+}
+
+.roster {
+  /*float: right;*/
+}
+
+.show_roster {
+  float: right;
+  width: 400px;
+}
+
+.player {
+  display: inline;
+  margin-left: 10px;
+  float: left;
+}
+
+#hide_roster {
+  display: block;
+}
+
+.team_games {
+  float: left;
+  margin-left: 150px;
+}
+
+/*.date {
+  float: right;
+}*/
+
+
+@media (max-width: 1290px) {
+  img {
     display: none;
-  }*/
+  }
+
+  #navbar {
+    display: none;
+  }
 }

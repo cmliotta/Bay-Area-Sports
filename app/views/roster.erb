@@ -1,8 +1,25 @@
-
-
-<div class"show_roster">
-  <a id="hide_roster">Hide Roster</a>
-  <% @team.players.each do |player| %>
-    <li id"game"><%= player.name %> <%= player.number %> </li>
-  <% end %>
+<div class="show_roster">
+  <ul class="roster">
+    <a id="hide_roster"> Hide Roster</a>
+    <% @team.players.each do |player| %>
+      <li class="player">-<%= player.name %> <%= player.number %> </li>
+    <% end %>
+  </ul>
 </div>
+
+<div class="team_games">
+  <h3> Upcoming Games: </h3>
+    <% @games.each do |game| %>
+        <li class="game"><%= game.home_team %> vs. <%= game.away_team%></li>
+        <li class="date"><%= game.date.getlocal.asctime %></li>
+      <% if game.home_team == "San Jose Sharks" %>
+        <img class="logo" src="http://upload.wikimedia.org/wikipedia/en/thumb/3/37/SanJoseSharksLogo.svg/1258px-SanJoseSharksLogo.svg.png">
+      <% elsif game.home_team == "San Jose Earthquakes" %>
+        <img class="logo" src="http://www.soccerchris.com/wp-content/uploads/2014/02/NewLogoPrimary-600x752.jpg">
+      <% elsif game.home_team == "San Francisco Giants" %>
+        <img class="logo" src="http://content.sportslogos.net/logos/54/74/full/2285.gif">
+        <% elsif game.home_team == "Oakland Athletics" %>
+        <img class="logo" src="http://www.sports-logos-screensavers.com/user/Oakland_Athletics4.jpg">
+      <% end %>
+    <% end %>
+  </div>

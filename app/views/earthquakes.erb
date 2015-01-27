@@ -1,0 +1,7 @@
+
+<div class="show_roster">
+  <a id="hide_roster"> Hide Roster</a>
+  <% @team.players.each do |player| %>
+    <li id="players"><%= player.name %> <%= player.number %> </li>
+  <% end %>
+</div>
