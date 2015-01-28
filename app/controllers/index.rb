@@ -27,6 +27,6 @@ not_found do
   404
 end
 
-# get '/dump' do
-#   File.read(File.join('public', 'mydb.dump'))
-# end
+get '/dump' do
+  File.read(File.join('public', 'mydb.dump'))
+end
