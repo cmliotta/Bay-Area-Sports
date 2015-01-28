@@ -1,4 +1,15 @@
+Oauth
 
+Users table
+-username
+-password
+
+Comments table
+-body
+-game id
+-user id
+
+sign in
 
 
  <% @games.each do |game| %>

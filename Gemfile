@@ -17,6 +17,8 @@ gem 'thin'
 gem 'shotgun'
 gem 'dotenv'
 gem 'httparty'
+gem 'oauth'
+gem 'twitter'
 
 group :test do
   gem 'shoulda-matchers'

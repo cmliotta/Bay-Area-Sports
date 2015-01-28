@@ -25,6 +25,9 @@ require 'httparty'
 require 'dotenv'
 Dotenv.load
 
+require 'oauth'
+require 'twitter'
+
 # require 'base64'
 
 # Some helper constants for path-centric logic

@@ -1,33 +1,36 @@
-<div class="show_roster">
-  <ul class="roster">
-    <h3 id="roster_header"> <%= @team.name %> Roster:</h3>
-    <% @team.players.each do |player| %>
-      <li class="player">-<%= player.name %> <%= player.number %> </li>
-    <% end %>
-  </ul>
-</div>
+<% if current_user %>
+  <div class="show_roster">
+    <ul class="roster">
+      <h3 id="roster_header"> <%= @team.name %> Roster:</h3>
+      <% @team.players.each do |player| %>
+        <li class="player">-<%= player.name %> <%= player.number %> </li>
+      <% end %>
+    </ul>
+  </div>
 
-<div class="team_games">
-  <h3> Upcoming Games: </h3>
-  <% if @games.empty? %>
-    <li class="game"> None Scheduled</li>
-  <% if @team.name == "San Francisco 49ers" %>
-    <img class="logo" src="../images/Niners.png">
-  <% elsif @team.name == "Oakland Raiders" %>
-    <img class="logo" src="../images/Raiders.png">
-    <% end %>
-  <% end %>
-    <% @games.each do |game| %>
-        <li class="game"><%= game.home_team %> vs. <%= game.away_team%></li>
-        <li class="date"><%= game.date.getlocal.asctime %></li>
-      <% if game.home_team == "San Jose Sharks" %>
-        <img class="logo" src="../images/Sharks.png">
-      <% elsif game.home_team == "San Jose Earthquakes" %>
-        <img class="logo" src="../images/Quakes.png">
-      <% elsif game.home_team == "San Francisco Giants" %>
-        <img class="logo" src="../images/Giants.png">
-        <% elsif game.home_team == "Oakland Athletics" %>
-        <img class="logo" src="../images/As.png">
+  <div class="team_games">
+    <h3> Upcoming Games: </h3>
+    <% if @games.empty? %>
+      <li class="game"> None Scheduled</li>
+    <% if @team.name == "San Francisco 49ers" %>
+      <img class="logo" src="../images/Niners.png">
+    <% elsif @team.name == "Oakland Raiders" %>
+      <img class="logo" src="../images/Raiders.png">
       <% end %>
     <% end %>
-  </div>
+      <% @games.each do |game| %>
+          <li class="game"><%= game.home_team %> vs. <%= game.away_team%></li>
+          <li class="venue"><%= game.venue %></li>
+          <li class="date"><%= game.date.getlocal.asctime %></li>
+        <% if game.home_team == "San Jose Sharks" %>
+          <img class="logo" src="../images/Sharks.png">
+        <% elsif game.home_team == "San Jose Earthquakes" %>
+          <img class="logo" src="../images/Quakes.png">
+        <% elsif game.home_team == "San Francisco Giants" %>
+          <img class="logo" src="../images/Giants.png">
+          <% elsif game.home_team == "Oakland Athletics" %>
+          <img class="logo" src="../images/As.png">
+        <% end %>
+      <% end %>
+    </div>
+<% end %>

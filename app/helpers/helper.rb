@@ -2,6 +2,9 @@ require "pp"
 helpers do
   include HTTParty
 
+  def current_user
+    User.find(session[:user_id]) if session[:user_id]
+  end
 
   def request_api_info(title, venue, id)
     url = "https://api.stubhub.com/search/catalog/events/v2"

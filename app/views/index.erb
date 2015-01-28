@@ -1,18 +1,19 @@
-
-
   <div class="upcoming_games">
     <h3> Upcoming Games: </h3>
-    <% @games.each do |game| %>
+    <% if current_user %>
+      <% @games.each do |game| %>
         <li class="game"><%= game.home_team %> vs. <%= game.away_team%></li>
+        <li class="venue"><%= game.venue %></li>
         <li class="date"><%= game.date.getlocal.asctime %></li>
-      <% if game.home_team == "San Jose Sharks" %>
-        <img class="logo" src="../images/Sharks.png">
-      <% elsif game.home_team == "San Jose Earthquakes" %>
-        <img class="logo" src="../images/Quakes.png">
-      <% elsif game.home_team == "San Francisco Giants" %>
-        <img class="logo" src="../images/Giants.png">
+        <% if game.home_team == "San Jose Sharks" %>
+          <img class="logo" src="../images/Sharks.png">
+        <% elsif game.home_team == "San Jose Earthquakes" %>
+          <img class="logo" src="../images/Quakes.png">
+        <% elsif game.home_team == "San Francisco Giants" %>
+          <img class="logo" src="../images/Giants.png">
         <% elsif game.home_team == "Oakland Athletics" %>
-        <img class="logo" src="../images/As.png">
+          <img class="logo" src="../images/As.png">
+        <% end %>
       <% end %>
     <% end %>
   </div>

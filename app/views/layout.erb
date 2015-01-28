@@ -11,7 +11,7 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
-  <!-- <link rel="shortcut icon" href="icon.ico" type="image/x-icon" /> -->
+
 
   <title>Bay Area Sports</title>
 </head>
@@ -32,6 +32,13 @@
       <li class="navbar"> <a class="navlink" href="/team/4"> Oakland Raiders</a></li>
     </ul>
     <h1>Bay Area Sports</h1>
+    <% if @access_token %>
+        <button id="sign"><a id="sign_out" href="/sign_out">Sign Out</a></button>
+    <% else %>
+      <form class="sign" action="/sign_in" method="get">
+        <input id="sign" type="submit" value="Sign In with Twitter" />
+      </form>
+    <% end %>
     <a id="home" href="/home"> Home</a>
   </header>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
