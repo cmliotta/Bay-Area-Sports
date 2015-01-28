@@ -28,15 +28,12 @@ helpers do
   end
 
   def request_roster
-    response = HTTParty.get("http://api.sportsdatallc.org/mlb-t4/rosters/2015.xml?api_key=" + ENV['MLB'])
+    response = HTTParty.get("http://api.sportsdatallc.org/mlb-t4/event/73201122-1829-4184-996b-dbc52d0ee003.xml?api_key=" + ENV['MLB'])
 
     pp response
-    # response["team"]["player"].each do |player|
-    #   pp player["name_full"] + player["jersey_number"]
-    # end
 
-     # response["team"]["player"].each do |player|
-     #  Player.create(name: player["name_full"], number: player["jersey_number"], team_id: 4)
+     # response["event"]["game"]["home"]["roster"]["player"].each do |player|
+     #  Player.create(name: player["first_name"] + " " + player["last_name"], team_id: 5)
      # end
   end
 

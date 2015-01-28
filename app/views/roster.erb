@@ -11,18 +11,23 @@
   <h3> Upcoming Games: </h3>
   <% if @games.empty? %>
     <li class="game"> None Scheduled</li>
+  <% if @team.name == "San Francisco 49ers" %>
+    <img class="logo" src="../images/Niners.png">
+  <% elsif @team.name == "Oakland Raiders" %>
+    <img class="logo" src="../images/Raiders.png">
+    <% end %>
   <% end %>
     <% @games.each do |game| %>
         <li class="game"><%= game.home_team %> vs. <%= game.away_team%></li>
         <li class="date"><%= game.date.getlocal.asctime %></li>
       <% if game.home_team == "San Jose Sharks" %>
-        <img class="logo" src="http://upload.wikimedia.org/wikipedia/en/thumb/3/37/SanJoseSharksLogo.svg/1258px-SanJoseSharksLogo.svg.png">
+        <img class="logo" src="../images/Sharks.png">
       <% elsif game.home_team == "San Jose Earthquakes" %>
-        <img class="logo" src="http://www.soccerchris.com/wp-content/uploads/2014/02/NewLogoPrimary-600x752.jpg">
+        <img class="logo" src="../images/Quakes.png">
       <% elsif game.home_team == "San Francisco Giants" %>
-        <img class="logo" src="http://content.sportslogos.net/logos/54/74/full/2285.gif">
+        <img class="logo" src="../images/Giants.png">
         <% elsif game.home_team == "Oakland Athletics" %>
-        <img class="logo" src="http://www.sports-logos-screensavers.com/user/Oakland_Athletics4.jpg">
+        <img class="logo" src="../images/As.png">
       <% end %>
     <% end %>
   </div>

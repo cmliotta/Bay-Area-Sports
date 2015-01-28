@@ -95,12 +95,17 @@ h1 {
 }
 
 
-@media (max-width: 1290px) {
-  img {
-    display: none;
-  }
+@media (max-width: 1310px) {
 
   #navbar {
+    display: none;
+  }
+}
+
+
+@media (max-width: 565px) {
+
+.logo {
     display: none;
   }
 }
