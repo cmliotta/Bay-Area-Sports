@@ -1,20 +1,4 @@
-push to heroku
-ajaxify
 
-
-database with event info
-  send api request
-  parse data to get proper sections
-
-Team has many events
-  has many players
-Game belongs to team
-Player belongs to team
-
-
-Request all events in next month
-Sort all those by date
-First of each team
 
 
  <% @games.each do |game| %>
@@ -27,3 +11,48 @@ First of each team
   <% end %>
 <% end %>
 
+
+---
+
+import DB into heroku remotely
+
+(1) read this link, hereon called [a]
+
+  https://devcenter.heroku.com/articles/heroku-postgres-import-export
+
+(2) from the top level Sinatra app folder dump the local pg database
+
+  pg_dump -Fc --no-acl --no-owner Bay-Area-Sports_development > public/mydb.dump
+
+(3) add a Sinatra route to make the dump available through the app
+
+  get '/dump' do
+    File.read(File.join('public', 'mydb.dump'))
+  end
+
+(4) download ngrok and run it against same port as Sinatra app
+
+  - https://ngrok.com/
+  - unzip the downloaded file
+  - in console run
+
+  ngrok 9393
+
+  - ngrok will report a public url that is NAT'd to your localhost
+  - copy that, it was 'http://3db94581.ngrok.com' in our case
+
+(5) discover DATABASE_COLOR from heroku
+
+  - in the console run
+
+  heroku config
+
+  - copy to clipboard the database environment variable, it's like
+
+  HEROKU_POSTGRESQL_MAROON_URL
+
+(6) restore the database based on [a] again
+
+ heroku pgbackups:restore HEROKU_POSTGRESQL_MAROON_URL 'http://3db94581.ngrok.com/dump'
+
+(7) smile, you're done.

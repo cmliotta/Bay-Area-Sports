@@ -4,7 +4,7 @@ get '/' do
 end
 
 post '/' do
-  request_api_info("Oakland Athletics", "Coliseum")
+  request_api_info("Oakland Athletics", "Coliseum", 6)
   200
 end
 
@@ -22,3 +22,11 @@ get '/home' do
   get_games
   erb :index, layout: false
 end
+
+not_found do
+  404
+end
+
+# get '/dump' do
+#   File.read(File.join('public', 'mydb.dump'))
+# end

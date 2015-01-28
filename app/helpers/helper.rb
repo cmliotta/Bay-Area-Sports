@@ -3,7 +3,7 @@ helpers do
   include HTTParty
 
 
-  def request_api_info(title, venue)
+  def request_api_info(title, venue, id)
     url = "https://api.stubhub.com/search/catalog/events/v2"
 
     response = HTTParty.get(url, query: {title: title, venue: venue}, headers: {"Authorization" => "Bearer " + ENV['APPLICATION_TOKEN']})
@@ -21,9 +21,9 @@ helpers do
     end
     puts "end of list"
 
-    # event_info["events"].each do |event|
-    #   Game.create(venue: event["venue"]["name"], home_team: event["attributes"][0]["value"], date: event["dateLocal"], away_team: event["attributes"][1]["value"], team_id: 6)
-    # end
+    event_info["events"].each do |event|
+      Game.create(venue: event["venue"]["name"], home_team: event["attributes"][0]["value"], date: event["dateLocal"], away_team: event["attributes"][1]["value"], team_id: id)
+    end
 
   end
 
