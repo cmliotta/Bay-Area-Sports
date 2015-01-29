@@ -2,6 +2,7 @@ $(document).ready(function() {
   selectTeam()
   returnHome()
   selectGame()
+  postComment()
 });
 
 function selectTeam() {
@@ -14,7 +15,6 @@ function selectTeam() {
     $.ajax({
       url: url
     }).success(function(response){
-      console.log(response)
       $(".upcoming_games").html(response)
     }).fail(function(response){
       console.log("fail" + response)
@@ -32,7 +32,6 @@ function selectGame() {
     $.ajax({
       url: url
     }).success(function(response){
-      console.log(response)
       $(".upcoming_games").html(response)
     }).fail(function(response){
       console.log("fail" + response)
@@ -47,13 +46,56 @@ function returnHome() {
     $.ajax({
       url: "/home"
     }).success(function(response){
-      console.log(response)
       $(".upcoming_games").html(response)
     }).fail(function(response){
       console.log("fail" + response)
     })
   })
 }
+
+function postComment(){
+  $(".upcoming_games").on("submit", "#add_comment", function(event){
+
+    event.preventDefault()
+    data = $(this).serialize()
+
+    $.ajax({
+      url: '/comment',
+      type: 'POST',
+      data: data,
+      dataType: "json"
+    }).success(function(response){
+      $(".user_comments").append("<li class=\'" + 'new_comment' + "\'>" + response.username + ": " + response.body + "</li>")
+    }).fail(function(response){
+      console.log("fail" + response)
+    })
+  })
+}
+
+
+
+// function postComment(){
+//   $(".upcoming_games").on("submit", "#add_comment", function(event){
+
+//     event.preventDefault()
+//     data = $(this).serialize()
+
+//     $.ajax({
+//       url: '/comment',
+//       type: 'POST',
+//       data: data,
+//       dataType: "json"
+//     }).success(function(response){
+//       var comment = response.body
+//       var name = response.username
+
+//       $(".user_comments").append("<li>" + name + "   :   " + comment + "</li>")
+//     }).fail(function(response){
+//       console.log("fail" + response)
+//     })
+//   })
+// }
+
 
 // function hideRoster() {
 //   $(".upcoming_games").on("click", "#hide_roster", function(){

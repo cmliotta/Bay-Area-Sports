@@ -22,14 +22,16 @@
         <% elsif @game.home_team == "Oakland Athletics" %>
           <img class="logo" src="../../../images/As.png">
         <% end %>
-        <form id="comment" method="post" action="/comment">
-          <input type="text" name="body">
-          <input type="hidden" name="game_id" value="<%= @game.id %>">
-          <input type="hidden" name="user_id" value="<%= current_user.id %>">
-          <input type="submit" value="Submit Comment">
+        <form id="add_comment" method="post" action="/comment">
+          <input class="comment_form" type="submit" value="Add Your Comment">
+          <input type="hidden" name="comment[game_id]" value="<%= @game.id %>">
+          <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+          <input id="last_comment" type="text" name="comment[body]">
         </form>
+      <ul class="user_comments">
         <% @game.comments.each do |comment| %>
-        <li><%= comment.user_id %>: <%= comment.body %></li>
+        <li class="new_comment"><%= comment.user.username %>: <%= comment.body %></li>
         <% end %>
+      </ul>
     </div>
 <% end %>

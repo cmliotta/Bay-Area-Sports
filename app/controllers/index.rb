@@ -29,6 +29,11 @@ get '/home' do
   erb :index, layout: false
 end
 
+post '/comment' do
+  comment = Comment.create(params[:comment])
+  {username: comment.user.username, body: comment.body, }.to_json
+end
+
 not_found do
   404
 end
