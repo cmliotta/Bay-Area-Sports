@@ -64,7 +64,7 @@ h1 {
 .no_games_logo {
   margin-bottom: 40px;
   height: 70px;
-  width: 70px;
+  width: 100px;
 }
 
 .roster {
@@ -107,10 +107,11 @@ h1 {
   border: none;
   background: none;
   font-weight: bold;
+  color: blueviolet;
 }
 
 #sign:hover {
-  color: black;
+  color: slateblue;
 }
 
 #sign_out_button {
@@ -125,11 +126,11 @@ h1 {
 #sign_out {
   text-decoration: none;
   font-weight: bold;
-  color: #1D3F3D;
+  color: blueviolet;
 }
 
 #sign_out:hover {
-  color: black;
+  color: slateblue;
 }
 
 .game_link {
@@ -170,12 +171,29 @@ h1 {
     padding-top: 48px;
   }
 
-}
+  .show_roster {
+    display: none;
+  }
 
+  .team_games {
+   float: none;
+  }
+
+}
 
 @media (max-width: 565px) {
 
+.team_games {
+  margin: auto;
+}
+
 .logo {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #main-container {
+    height: 1250px;
   }
 }
