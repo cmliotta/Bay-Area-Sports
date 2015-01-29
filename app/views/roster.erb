@@ -13,9 +13,9 @@
     <% if @games.empty? %>
       <li class="game"> None Scheduled</li>
     <% if @team.name == "San Francisco 49ers" %>
-      <img class="logo" src="../images/Niners.png">
+      <img class="no_games_logo" src="../images/Niners.png">
     <% elsif @team.name == "Oakland Raiders" %>
-      <img class="logo" src="../images/Raiders.png">
+      <img class="no_games_logo" src="../images/Raiders.png">
       <% end %>
     <% end %>
       <% @games.each do |game| %>

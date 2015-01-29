@@ -33,7 +33,7 @@
     </ul>
     <h1>Bay Area Sports</h1>
     <a id="home" href="/home"> Home</a>
-    <% if @access_token %>
+    <% if current_user %>
         <button id="sign_out_button"><a id="sign_out" href="/sign_out">Sign Out</a></button>
     <% else %>
       <form class="sign" action="/sign_in" method="get">

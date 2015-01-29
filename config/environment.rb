@@ -26,7 +26,7 @@ require 'dotenv'
 Dotenv.load
 
 require 'oauth'
-require 'twitter'
+# require 'twitter'
 
 # require 'base64'
 

@@ -68,5 +68,5 @@ get '/auth' do
   session[:user_id] = user.id
 
   get_games
-  erb :index
+  redirect'/'
 end
