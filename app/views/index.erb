@@ -2,7 +2,7 @@
     <h3> Upcoming Games: </h3>
     <% if current_user %>
       <% @games.each do |game| %>
-        <li class="game"><%= game.home_team %> vs. <%= game.away_team%></li>
+        <li class="game"><a class="game_link" href="/team/<%=game.team_id%>/game/<%=game.id%>"><%= game.home_team %> vs. <%= game.away_team%></a></li>
         <li class="venue"><%= game.venue %></li>
         <li class="date"><%= game.date.getlocal.asctime %></li>
         <% if game.home_team == "San Jose Sharks" %>

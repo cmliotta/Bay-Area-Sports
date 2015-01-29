@@ -24,7 +24,6 @@ li {
 }
 
 #home {
-  margin-top: -25px;
   float: left;
   text-decoration: none;
   color: #1D3F3D;
@@ -97,7 +96,6 @@ h1 {
 #sign {
   float: right;
   display: inline;
-  margin-top: -25px;
   border: none;
   background: none;
   font-weight: bold;
@@ -117,18 +115,22 @@ h1 {
   color: black;
 }
 
+.game_link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #1D3F3D;
+}
+
+
+
 @media (max-width: 1316px) {
 
   #navbar {
     display: none;
   }
 
-  #home {
-    margin-top: 0;
-  }
-
-   #sign {
-    margin-top: 0;
+  h1 {
+    padding-top: 48px;
   }
 
 }

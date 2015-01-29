@@ -1,9 +1,8 @@
 $(document).ready(function() {
   selectTeam()
   returnHome()
+  selectGame()
 });
-
-
 
 function selectTeam() {
   $(".navlink").on("click", function(event){
@@ -11,6 +10,24 @@ function selectTeam() {
 
       console.log($(this).attr("href"))
       url = $(this).attr("href")
+
+    $.ajax({
+      url: url
+    }).success(function(response){
+      console.log(response)
+      $(".upcoming_games").html(response)
+    }).fail(function(response){
+      console.log("fail" + response)
+    })
+  })
+}
+
+function selectGame() {
+  $(".upcoming_games").on("click", ".game_link", function(event){
+    event.preventDefault()
+
+    url = $(this).attr("href")
+    console.log(url)
 
     $.ajax({
       url: url

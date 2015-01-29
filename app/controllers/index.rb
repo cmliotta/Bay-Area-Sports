@@ -3,19 +3,25 @@ get '/' do
   erb :index
 end
 
-post '/' do
-  request_api_info("Oakland Athletics", "Coliseum", 6)
-  200
-end
+# post '/' do
+#   request_api_info("Oakland Athletics", "Coliseum", 6)
+#   200
+# end
 
-get "/roster" do
-  request_roster
-end
+# get "/roster" do
+#   request_roster
+# end
 
 get "/team/:id" do
   @team = Team.find(params[:id])
   @games = @team.games.order(:date)
   erb :roster, layout: false
+end
+
+get "/team/:team_id/game/:game_id" do
+  @team = Team.find(params[:team_id])
+  @game = Game.find(params[:game_id])
+  erb :game, layout: false
 end
 
 get '/home' do
@@ -32,7 +38,6 @@ get '/dump' do
 end
 
 get '/sign_in' do
-  # the `request_token` method is defined in `app/helpers/oauth.rb`
   redirect request_token.authorize_url
 end
 

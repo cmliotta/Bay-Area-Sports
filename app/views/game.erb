@@ -1,0 +1,35 @@
+<% if current_user %>
+  <div class="show_roster">
+    <ul class="roster">
+      <h3 id="roster_header"> <%= @team.name %> Roster:</h3>
+      <% @team.players.each do |player| %>
+        <li class="player">-<%= player.name %> <%= player.number %> </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="team_games">
+    <h3> Upcoming Game: </h3>
+    <li class="game"><a class="game_link" href="/team/<%=@game.team_id%>/game/<%=@game.id%>"><%= @game.home_team %> vs. <%= @game.away_team%></a></li>
+    <li class="venue"><%= @game.venue %></li>
+    <li class="date"><%= @game.date.getlocal.asctime %></li>
+        <% if @game.home_team == "San Jose Sharks" %>
+          <img class="logo" src="../../../images/Sharks.png">
+        <% elsif @game.home_team == "San Jose Earthquakes" %>
+          <img class="logo" src="../../../images/Quakes.png">
+        <% elsif @game.home_team == "San Francisco Giants" %>
+          <img class="logo" src="../../../images/Giants.png">
+        <% elsif @game.home_team == "Oakland Athletics" %>
+          <img class="logo" src="../../../images/As.png">
+        <% end %>
+        <form id="comment" method="post" action="/comment">
+          <input type="text" name="body">
+          <input type="hidden" name="game_id" value="<%= @game.id %>">
+          <input type="hidden" name="user_id" value="<%= current_user.id %>">
+          <input type="submit" value="Submit Comment">
+        </form>
+        <% @game.comments.each do |comment| %>
+        <li><%= comment.user_id %>: <%= comment.body %></li>
+        <% end %>
+    </div>
+<% end %>
