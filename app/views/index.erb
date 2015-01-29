@@ -4,7 +4,7 @@
       <% @games.each do |game| %>
         <li class="game"><a class="game_link" href="/team/<%=game.team_id%>/game/<%=game.id%>"><%= game.home_team %> vs. <%= game.away_team%></a></li>
         <li class="venue"><%= game.venue %></li>
-        <li class="date"><%= game.date.getlocal.asctime %></li>
+        <li class="date"><%= game.date.getlocal("-07:00").asctime %></li>
         <% if game.home_team == "San Jose Sharks" %>
           <img class="logo" src="../images/Sharks.png">
         <% elsif game.home_team == "San Jose Earthquakes" %>
