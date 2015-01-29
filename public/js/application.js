@@ -71,35 +71,3 @@ function postComment(){
     })
   })
 }
-
-
-
-// function postComment(){
-//   $(".upcoming_games").on("submit", "#add_comment", function(event){
-
-//     event.preventDefault()
-//     data = $(this).serialize()
-
-//     $.ajax({
-//       url: '/comment',
-//       type: 'POST',
-//       data: data,
-//       dataType: "json"
-//     }).success(function(response){
-//       var comment = response.body
-//       var name = response.username
-
-//       $(".user_comments").append("<li>" + name + "   :   " + comment + "</li>")
-//     }).fail(function(response){
-//       console.log("fail" + response)
-//     })
-//   })
-// }
-
-
-// function hideRoster() {
-//   $(".upcoming_games").on("click", "#hide_roster", function(){
-//     console.log($(this).parent().parent())
-//     $(this).parent().remove()
-//   })
-// }

@@ -24,6 +24,7 @@ li {
 }
 
 #home {
+  margin-top: -20px;
   float: left;
   text-decoration: none;
   color: #1D3F3D;
@@ -94,6 +95,7 @@ h1 {
 }
 
 #sign {
+  margin-top: -20px;
   float: right;
   display: inline;
   border: none;
@@ -103,6 +105,15 @@ h1 {
 
 #sign:hover {
   color: black;
+}
+
+#sign_out_button {
+  float: right;
+  display: inline;
+  border: none;
+  background: none;
+  font-weight: bold;
+  margin-top: -25px;
 }
 
 #sign_out {
@@ -119,6 +130,10 @@ h1 {
   text-decoration: none;
   font-weight: bold;
   color: #1D3F3D;
+}
+
+.game_link:hover {
+  color: black;
 }
 
 .comment_form {
